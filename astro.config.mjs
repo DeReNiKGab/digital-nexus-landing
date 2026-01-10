@@ -11,6 +11,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-
-  integrations: [sentry(), spotlightjs()]
+  integrations: [sentry(), spotlightjs()],
+  site: 'https://DeReNiKGab.github.io',
+  base: '/digital-nexus-landing',
 });
