@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
-import MainLogo from '../assets/Logo_Main.jpg';
+import { Image } from "astro:assets";
+import MainLogo from "../assets/Logo_Main.jpg";
 ---
 
 <!-- Background Animation Canvas -->
@@ -72,7 +72,16 @@ import MainLogo from '../assets/Logo_Main.jpg';
 </nav>
 <!-- Main Content Area -->
 <main
-  class="flex-grow grid grid-cols-1 lg:px-12 lg:grid-cols-12 lg:my-32 mt-20 mb-20 pb-12 relative gap-x-8 gap-y-8"
-  style="height:600px"
+  class="hero-container flex-grow flex flex-col items-center justify-center relative overflow-hidden"
 >
+  <h1
+    id="nexus-title"
+    class="font-bold tracking-[0.2em] text-5xl md:text-8xl text-white flex flex-wrap justify-center items-center"
+  >
+    <span class="word inline-block" data-text="DIGITAL"></span>
+    <span class="inline-block w-8 md:w-16"></span>
+    <span class="word inline-block" data-text="NEXUS"></span>
+  </h1>
+
+  <div class="h-1 bg-blue-500 mt-8 animate-width-grow"></div>
 </main>

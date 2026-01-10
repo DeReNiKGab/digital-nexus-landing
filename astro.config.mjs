@@ -10,7 +10,7 @@ import spotlightjs from '@spotlightjs/astro';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
-  },
+  }, 
   integrations: [sentry(), spotlightjs()],
   site: 'https://DeReNiKGab.github.io',
   base: '/digital-nexus-landing',
