@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -36,7 +36,7 @@ import '../styles/global.css';
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
+                entry.target.classList.add("animate");
               }
             });
           },
@@ -44,35 +44,35 @@ import '../styles/global.css';
         );
 
         document
-          .querySelectorAll('.animate-on-scroll')
+          .querySelectorAll(".animate-on-scroll")
           .forEach((el) => observer.observe(el));
 
         // 3. Stats Interaction (With Safety Check)
-        const stats = document.querySelectorAll('.stat-item');
+        const stats = document.querySelectorAll(".stat-item");
         const mainImage = document.getElementById(
-          'main-image'
+          "main-image"
         ) as HTMLImageElement;
 
         if (stats.length > 0 && mainImage) {
           const images = {
-            1: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/960d4d9c-2584-47bb-9b1c-418e0d46e730_800w.webp',
-            2: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/df7a2dd9-504b-4462-9e25-8f9322d8a718_1600w.webp',
-            3: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/37e53262-839c-4555-837c-45698b65611b_800w.webp',
+            1: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/960d4d9c-2584-47bb-9b1c-418e0d46e730_800w.webp",
+            2: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/df7a2dd9-504b-4462-9e25-8f9322d8a718_1600w.webp",
+            3: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/37e53262-839c-4555-837c-45698b65611b_800w.webp",
           };
 
           stats.forEach((stat) => {
-            stat.addEventListener('click', () => {
+            stat.addEventListener("click", () => {
               const imgId = stat.getAttribute(
-                'data-img-id'
+                "data-img-id"
               ) as unknown as keyof typeof images;
-              stats.forEach((s) => s.classList.remove('active'));
-              stat.classList.add('active');
-              mainImage.classList.add('fade-out');
+              stats.forEach((s) => s.classList.remove("active"));
+              stat.classList.add("active");
+              mainImage.classList.add("fade-out");
               setTimeout(() => {
                 if (imgId in images) {
                   mainImage.src = images[imgId];
                 }
-                mainImage.onload = () => mainImage.classList.remove('fade-out');
+                mainImage.onload = () => mainImage.classList.remove("fade-out");
               }, 500);
             });
           });
@@ -80,10 +80,10 @@ import '../styles/global.css';
 
         // 4. BACKGROUND ANIMATION (With Safety Check)
         const canvas = document.getElementById(
-          'network-canvas'
+          "network-canvas"
         ) as HTMLCanvasElement;
         if (canvas) {
-          const ctx = canvas.getContext('2d');
+          const ctx = canvas.getContext("2d");
           if (!ctx) return;
 
           let width: number, height: number;
@@ -94,11 +94,11 @@ import '../styles/global.css';
           const mouseRepelForce = 2;
           let mouse = { x: null as number | null, y: null as number | null };
 
-          window.addEventListener('mousemove', (e) => {
+          window.addEventListener("mousemove", (e) => {
             mouse.x = e.x;
             mouse.y = e.y;
           });
-          window.addEventListener('mouseleave', () => {
+          window.addEventListener("mouseleave", () => {
             mouse.x = null;
             mouse.y = null;
           });
@@ -156,7 +156,7 @@ import '../styles/global.css';
             draw() {
               ctx!.beginPath();
               ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-              ctx!.fillStyle = 'rgba(255, 255, 255, 0.5)';
+              ctx!.fillStyle = "rgba(255, 255, 255, 0.5)";
               ctx!.fill();
             }
           }
@@ -192,7 +192,7 @@ import '../styles/global.css';
             requestAnimationFrame(animate);
           }
 
-          window.addEventListener('resize', () => {
+          window.addEventListener("resize", () => {
             resize();
             initParticles();
           });
