@@ -1,0 +1,350 @@
+@import 'tailwindcss';
+
+:root {
+  --primary-base: #ffffff;
+  --action-accent: #0598ce;
+  --bg-main: #020408;
+  --bg-secondary: #0f1729;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-light: rgba(255, 255, 255, 0.1);
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--action-accent);
+}
+
+/* Selection */
+::selection {
+  background: var(--action-accent);
+  color: white;
+}
+
+/* Animation Utilities */
+.animate-on-scroll {
+  opacity: 0;
+  animation-play-state: paused !important;
+  transition: opacity 0.5s ease-out;
+}
+
+.animate-on-scroll.animate {
+  opacity: 1;
+  animation-play-state: running !important;
+  animation-name: fadeSlideIn;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* Beams */
+.beam-border-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: var(--border-light);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.beam-border-v::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to bottom, transparent, #0598ce, transparent);
+  transform: translateY(-100%);
+  animation: beam-drop 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  opacity: 0.5;
+}
+
+.beam-border-h {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border-light);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.beam-border-h::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to right, transparent, #0598ce, transparent);
+  transform: translateX(-100%);
+  animation: beam-slide 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 2.5s;
+  opacity: 0.5;
+}
+
+@keyframes beam-drop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes beam-slide {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Image Transition */
+#main-image {
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.7s ease-out;
+}
+
+.fade-out {
+  opacity: 0 !important;
+  transform: scale(1.05);
+}
+
+/* Button & Interactive Styles */
+.stat-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.stat-item:hover,
+.stat-item.active {
+  opacity: 1;
+}
+
+.stat-item.active .stat-value {
+  color: var(--text-main);
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(5, 152, 206, 0.5);
+}
+
+/* Custom Animated Button */
+.btn-wrapper {
+  --dot-size: 6px;
+  --line-weight: 1px;
+  --animation-speed: 0.35s;
+  --dot-color: var(--action-accent);
+  --line-color: var(--action-accent);
+  --grid-color: rgba(5, 152, 206, 0.3);
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 1rem;
+}
+
+.btn-wrapper .btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(5, 152, 206, 0.05);
+  border: 1px solid var(--grid-color);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.btn-wrapper:hover .btn {
+  background: var(--action-accent);
+  color: white;
+  border-color: var(--action-accent);
+  box-shadow: 0 0 30px rgba(5, 152, 206, 0.4);
+}
+
+.line {
+  position: absolute;
+  background: var(--line-color);
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.dot {
+  position: absolute;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--dot-color);
+  opacity: 0;
+  transition: 0.3s;
+  box-shadow: 0 0 10px var(--action-accent);
+}
+
+.btn-wrapper:hover .line {
+  opacity: 1;
+}
+
+.btn-wrapper:hover .dot {
+  opacity: 1;
+}
+
+.btn-wrapper:hover .line.top {
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.btn-wrapper:hover .line.bottom {
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.btn-wrapper:hover .line.left {
+  left: -1px;
+  top: 0;
+  height: 100%;
+  width: 1px;
+}
+
+.btn-wrapper:hover .line.right {
+  right: -1px;
+  top: 0;
+  height: 100%;
+  width: 1px;
+}
+
+.btn-wrapper:hover .dot.top-left {
+  top: -3px;
+  left: -3px;
+}
+
+.btn-wrapper:hover .dot.top-right {
+  top: -3px;
+  right: -3px;
+}
+
+.btn-wrapper:hover .dot.bottom-left {
+  bottom: -3px;
+  left: -3px;
+}
+
+.btn-wrapper:hover .dot.bottom-right {
+  bottom: -3px;
+  right: -3px;
+}
+
+/* Dark Mode Utility Overrides */
+.glass-panel {
+  background: rgba(15, 23, 41, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+/* Marquee Animation */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-scroll {
+  animation: marquee-scroll 35s linear infinite;
+  will-change: transform;
+}
+
+.marquee-card {
+  flex-shrink: 0;
+  width: 90vw;
+  max-width: 340px;
+  height: 280px;
+  background-color: #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .marquee-card {
+    width: 420px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .marquee-card {
+    width: 520px;
+  }
+}

@@ -1,0 +1,222 @@
+---
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Digital Nexus | Enterprise IT Support</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      is:inline
+      src="https://unpkg.com/unicorn-studio-web-sdk@0.0.6/dist/index.js"
+    ></script>
+    <script is:inline src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      // Wrap in a function to keep it organized
+      const initPage = () => {
+        // 1. Icons
+        if ((window as any).lucide) {
+          (window as any).lucide?.createIcons();
+        }
+
+        // 2. Animation Observer
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document
+          .querySelectorAll('.animate-on-scroll')
+          .forEach((el) => observer.observe(el));
+
+        // 3. Stats Interaction (With Safety Check)
+        const stats = document.querySelectorAll('.stat-item');
+        const mainImage = document.getElementById(
+          'main-image'
+        ) as HTMLImageElement;
+
+        if (stats.length > 0 && mainImage) {
+          const images = {
+            1: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/960d4d9c-2584-47bb-9b1c-418e0d46e730_800w.webp',
+            2: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/df7a2dd9-504b-4462-9e25-8f9322d8a718_1600w.webp',
+            3: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/37e53262-839c-4555-837c-45698b65611b_800w.webp',
+          };
+
+          stats.forEach((stat) => {
+            stat.addEventListener('click', () => {
+              const imgId = stat.getAttribute(
+                'data-img-id'
+              ) as unknown as keyof typeof images;
+              stats.forEach((s) => s.classList.remove('active'));
+              stat.classList.add('active');
+              mainImage.classList.add('fade-out');
+              setTimeout(() => {
+                if (imgId in images) {
+                  mainImage.src = images[imgId];
+                }
+                mainImage.onload = () => mainImage.classList.remove('fade-out');
+              }, 500);
+            });
+          });
+        }
+
+        // 4. BACKGROUND ANIMATION (With Safety Check)
+        const canvas = document.getElementById(
+          'network-canvas'
+        ) as HTMLCanvasElement;
+        if (canvas) {
+          const ctx = canvas.getContext('2d');
+          if (!ctx) return;
+
+          let width: number, height: number;
+          let particles: any[] = [];
+          const particleCount = 90;
+          const connectionDistance = 150;
+          const mouseInteractionRadius = 200;
+          const mouseRepelForce = 2;
+          let mouse = { x: null as number | null, y: null as number | null };
+
+          window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+          });
+          window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+          });
+
+          function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+          }
+
+          class Particle {
+            x: number;
+            y: number;
+            vx: number;
+            vy: number;
+            size: number;
+            baseVx: number;
+            baseVy: number;
+            constructor() {
+              this.x = Math.random() * width;
+              this.y = Math.random() * height;
+              this.vx = (Math.random() - 0.5) * 0.5;
+              this.vy = (Math.random() - 0.5) * 0.5;
+              this.size = Math.random() * 2 + 1;
+              this.baseVx = this.vx;
+              this.baseVy = this.vy;
+            }
+            update() {
+              this.x += this.vx;
+              this.y += this.vy;
+              if (mouse.x !== null && mouse.y !== null) {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < mouseInteractionRadius) {
+                  const force =
+                    (mouseInteractionRadius - distance) /
+                    mouseInteractionRadius;
+                  this.vx -= (dx / distance) * force * mouseRepelForce;
+                  this.vy -= (dy / distance) * force * mouseRepelForce;
+                }
+              }
+              this.vx += (this.baseVx - this.vx) * 0.05;
+              this.vy += (this.baseVy - this.vy) * 0.05;
+              if (this.x < 0 || this.x > width) {
+                this.vx *= -1;
+                this.baseVx *= -1;
+              }
+              if (this.y < 0 || this.y > height) {
+                this.vy *= -1;
+                this.baseVy *= -1;
+              }
+            }
+            draw() {
+              ctx!.beginPath();
+              ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+              ctx!.fillStyle = 'rgba(255, 255, 255, 0.5)';
+              ctx!.fill();
+            }
+          }
+
+          function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+              particles.push(new Particle());
+            }
+          }
+
+          function animate() {
+            ctx!.clearRect(0, 0, width, height);
+            particles.forEach((p) => {
+              p.update();
+              p.draw();
+            });
+            for (let i = 0; i < particles.length; i++) {
+              for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < connectionDistance) {
+                  ctx!.beginPath();
+                  ctx!.strokeStyle = `rgba(5, 152, 206, ${1 - distance / connectionDistance})`;
+                  ctx!.lineWidth = 0.5;
+                  ctx!.moveTo(particles[i].x, particles[i].y);
+                  ctx!.lineTo(particles[j].x, particles[j].y);
+                  ctx!.stroke();
+                }
+              }
+            }
+            requestAnimationFrame(animate);
+          }
+
+          window.addEventListener('resize', () => {
+            resize();
+            initParticles();
+          });
+          resize();
+          initParticles();
+          animate();
+        }
+      };
+
+      // Run it!
+      initPage();
+    </script>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+</style>

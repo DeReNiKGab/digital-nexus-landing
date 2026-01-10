@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import MainLogo from '../assets/Logo_Main.jpg';
+---
+
+<!-- Background Animation Canvas -->
+<canvas
+  id="network-canvas"
+  class="fixed inset-0 w-full h-full -z-10 pointer-events-none"
+  width="1920"
+  height="868"></canvas>
+
+<!-- Deep Gradient Overlay -->
+<div
+  class="fixed inset-0 w-full h-full -z-10 pointer-events-none bg-gradient-to-b from-transparent via-[#020408]/50 to-[#020408]"
+>
+</div>
+
+<!-- Navbar -->
+<nav
+  class="lg:px-12 flex z-50 animate-on-scroll animate bg-[#020408]/80 w-full border-white/5 border-b pt-6 pr-6 pb-6 pl-6 relative backdrop-blur-md items-center justify-between"
+>
+  <div class="flex gap-12 gap-x-12 gap-y-12 items-center">
+    <!-- Logo -->
+    <a
+      href="/"
+      class="flex items-center gap-3 text-white hover:text-[#D3D3D3] transition-colors group"
+    >
+      <div
+        class="group-hover:bg-[#D3D3D3]/20 transition-colors group-hover:border-[#D3D3D3]/50 bg-white/5 border-white/10 border rounded-lg pt-1.5 pr-1.5 pb-1.5 pl-1.5"
+      >
+        <Image
+          src={MainLogo}
+          alt="Digital Nexus Logo"
+          class="h-8 w-8"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <span class="font-bold tracking-tight text-lg text-white"
+        >DIGITAL NEXUS</span
+      >
+    </a>
+
+    <div class="hidden h-5 w-px bg-white/10"></div>
+
+    <a
+      href="#WhoWeAre"
+      class="hidden md:flex gap-2 hover:text-white transition-colors group gap-x-2 gap-y-2 items-center text-sm font-medium text-slate-400"
+    >
+      Who we are</a
+    >
+    <a
+      href="#Services"
+      class="hidden md:flex hover:text-white transition-colors group gap-x-2 gap-y-2 items-center text-sm font-medium text-slate-400"
+    >
+      Services</a
+    >
+    <a
+      href="#OurPartners"
+      class="hidden md:flex gap-2 hover:text-white transition-colors group gap-x-2 gap-y-2 items-center text-sm font-medium text-slate-400"
+    >
+      Our Partners</a
+    >
+    <a
+      href="#ContactUs"
+      class="hidden md:flex gap-2 hover:text-white transition-colors group gap-x-2 gap-y-2 items-center text-sm font-medium text-slate-400"
+    >
+      Contact us</a
+    >
+  </div>
+</nav>
+<!-- Main Content Area -->
+<main
+  class="flex-grow grid grid-cols-1 lg:px-12 lg:grid-cols-12 lg:my-32 mt-20 mb-20 pb-12 relative gap-x-8 gap-y-8"
+  style="height:600px"
+>
+</main>

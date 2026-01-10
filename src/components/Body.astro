@@ -1,0 +1,558 @@
+---
+import { Image } from 'astro:assets';
+import Logo1 from '../assets/logo_1.png';
+import Logo2 from '../assets/logo_2.jpg';
+import Logo3 from '../assets/logo_3.png';
+import Logo4 from '../assets/logo_4.png';
+import Logo5 from '../assets/logo_5.png';
+import Logo6 from '../assets/logo_6.png';
+---
+
+<!-- WhoWeAre Section  -->
+<section
+  id="WhoWeAre"
+  class="relative w-full border-t border-white/5 glass-panel"
+>
+  <div
+    class="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+  >
+    <div
+      class="relative z-10 animate-on-scroll lg:col-span-2 text-center lg:text-left"
+    >
+      <h2
+        class="text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tighter uppercase"
+      >
+        Who<br class="hidden lg:block" /> We<br class="hidden lg:block" /> Are
+      </h2>
+    </div>
+
+    <div class="lg:col-span-10 z-10 animate-on-scroll lg:pl-8 space-y-6">
+      <p class="leading-relaxed text-lg font-light text-slate-300">
+        Digital Nexus is a leading IT powerhouse in Armenia, home to seasoned
+        professionals boasting over 19 years of collective expertise in the
+        dynamic IT landscape. Our specialists excel in <span
+          class="text-white font-normal">full-cycle software development</span
+        > including custom application design, agile development, API integrations,
+        and DevOps.
+      </p>
+      <p class="leading-relaxed text-lg font-light text-slate-300">
+        We specialize in end-to-end server and hardware installations configured
+        to adhere to international standards such as <span
+          class="text-white font-normal">ISO 27001</span
+        > and <span class="text-white font-normal">ISO 9001</span>. From
+        designing secure data centers to delivering 24/7 technical support, our
+        team provides reliability and innovation.
+      </p>
+      <p class="leading-relaxed text-lg font-light text-slate-300">
+        With a proven track record in finance and the public sector, Digital
+        Nexus empowers partners with scalable IT ecosystems that guarantee
+        operational continuity and unlock growth potential.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section
+  id="Services"
+  class="lg:py-32 overflow-hidden -multi w-full border-white/5 border-t pt-24 pb-24 relative"
+>
+  <div
+    class="absolute inset-0 w-full px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10 -multi"
+  >
+    <!-- Isometric Visual -->
+    <div
+      class="aspect-square flex animate-on-scroll mr-auto ml-auto relative items-center justify-center"
+    >
+      <div class="sm:w-80 sm:h-80 w-64 z-40 relative top-28">
+        <div
+          class="absolute inset-0 z-[40] translate-y-[-25px] transition-transform duration-700 hover:translate-y-[-35px] group"
+        >
+          <div
+            class="backdrop-blur-[2px] transition-colors group-hover:border-[#0598CE]/50 group-hover:bg-[#0598CE]/10 shadow-[#0598CE]/5 w-full h-full border-white/10 border shadow-lg rotate-45 scale-y-50"
+          >
+          </div>
+          <div
+            class="absolute top-1/2 -right-12 -translate-y-1/2 translate-x-4 flex items-center gap-3 opacity-100"
+          >
+            <div
+              class="flex gap-2 bg-[#0F1729] border-white/10 border rounded-md pt-1.5 pr-3 pb-1.5 pl-3 relative top-14 left-32 shadow-sm gap-x-2 gap-y-2 items-center"
+            >
+              <span
+                class="uppercase whitespace-nowrap text-xs font-semibold text-white tracking-wider"
+                >04.24/7 Technical Support</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Layer 03: Solution Design -->
+        <div
+          class="absolute inset-0 z-[50] translate-y-[-75px] transition-transform duration-700 hover:translate-y-[-90px] group"
+        >
+          <div
+            class="backdrop-blur-[2px] transition-colors group-hover:border-[#0598CE]/50 group-hover:bg-[#0598CE]/10 shadow-[#0598CE]/5 border-white/10 border w-full h-full shadow-lg rotate-45 scale-y-50"
+          >
+          </div>
+          <div
+            class="absolute top-1/2 -left-12 -translate-y-1/2 -translate-x-4 flex flex-row-reverse items-center gap-3 opacity-100"
+          >
+            <div
+              class="flex gap-2 bg-[#0F1729] border-white/10 border rounded-md px-3 py-1.5 relative right-24 shadow-sm gap-x-2 gap-y-2 items-center"
+            >
+              <span
+                class="uppercase whitespace-nowrap text-xs font-semibold text-white tracking-wider"
+                >03. End-to-End Server Setup</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Layer 02: Data Architecture -->
+        <div
+          class="z-[60] transition-transform duration-700 hover:translate-y-[-145px] group absolute top-0 right-0 bottom-0 left-0 translate-y-[-125px]"
+        >
+          <div
+            class="backdrop-blur-[2px] transition-colors group-hover:border-[#0598CE]/50 group-hover:bg-[#0598CE]/10 shadow-[#0598CE]/5 w-full h-full border-white/10 border shadow-lg rotate-45 scale-y-50"
+          >
+          </div>
+          <div
+            class="absolute top-1/2 -right-12 -translate-y-1/2 translate-x-4 flex items-center gap-3 opacity-100"
+          >
+            <div
+              class="flex bg-[#0F1729] border-white/10 border rounded-md pt-1.5 pr-3 pb-1.5 pl-3 relative top-14 left-14 shadow-sm gap-x-2 gap-y-2 items-center"
+            >
+              <span
+                class="uppercase whitespace-nowrap text-xs font-semibold text-white tracking-wider"
+                >02. Consulting</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Layer 01: Requirements (Top) -->
+        <div
+          class="transition-transform duration-700 hover:translate-y-[-200px] group absolute top-0 right-0 bottom-0 left-0 translate-y-[-175px] z-[70]"
+        >
+          <div
+            class="backdrop-blur-[2px] transition-colors group-hover:border-[#0598CE]/50 group-hover:bg-[#0598CE]/10 shadow-[#0598CE]/5 w-full h-full border-white/10 border shadow-lg rotate-45 scale-y-50"
+          >
+          </div>
+          <div
+            class="absolute top-1/2 -left-12 -translate-y-1/2 -translate-x-4 flex flex-row-reverse items-center gap-3 opacity-100"
+          >
+            <div
+              class="flex bg-[#0F1729] border-white/10 border rounded-md mx-2 pt-1.5 pr-3 pb-1.5 pl-3 relative right-44 shadow-sm gap-x-2 gap-y-2 items-center"
+            >
+              <span
+                class="uppercase whitespace-nowrap text-xs font-semibold text-white tracking-wider"
+                >01. Full-Cycle Software Development</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="flex flex-col animate-on-scroll justify-center">
+      <h2
+        class="lg:text-5xl leading-[1.1] text-4xl font-semibold text-white tracking-tight mb-6"
+      >
+        Services
+      </h2>
+
+      <div class="pl-2 relative space-y-10">
+        <div
+          class="bg-gradient-to-b from-[#0598CE] via-white/10 to-transparent opacity-60 w-px absolute top-4 bottom-4 left-[19px]"
+        >
+        </div>
+
+        <div class="relative flex gap-6 group cursor-default">
+          <div class="relative z-10 shrink-0">
+            <div
+              class="flex group-hover:border-[#0598CE] group-hover:text-[#0598CE] transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(5,152,206,0.3)] text-white/40 bg-[#0F1729] w-10 h-10 border-white/10 border rounded-full shadow-sm items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                data-lucide="activity"
+                class="lucide lucide-activity w-5 h-5 stroke-[2]"
+                ><path
+                  d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+                ></path></svg
+              >
+            </div>
+          </div>
+          <div class="pt-1">
+            <h3
+              class="group-hover:text-[#0598CE] transition-colors text-lg font-medium text-white mb-1"
+            >
+              Requirements Analysis
+            </h3>
+            <p class="leading-relaxed text-sm font-normal text-slate-400">
+              Deep needs assessment and technical specifications.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative flex gap-6 group cursor-default">
+          <div class="relative z-10 shrink-0">
+            <div
+              class="w-10 h-10 rounded-full bg-[#0F1729] border border-white/10 flex items-center justify-center group-hover:border-[#0598CE] group-hover:text-[#0598CE] transition-all duration-300 text-white/40 shadow-sm group-hover:shadow-[0_0_15px_rgba(5,152,206,0.3)]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                data-lucide="cloud"
+                class="lucide lucide-cloud w-5 h-5 stroke-[2]"
+                ><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"
+                ></path></svg
+              >
+            </div>
+          </div>
+          <div class="pt-1">
+            <h3
+              class="group-hover:text-[#0598CE] transition-colors text-lg font-medium text-white mb-1"
+            >
+              Full-Cycle Software Development
+            </h3>
+            <p class="leading-relaxed text-sm font-normal text-slate-400">
+              Transform your ideas into market-ready applications through our
+              comprehensive process from ideation and agile coding to rigorous
+              testing, deployment, and ongoing optimization delivering scalable
+              solutions that accelerate your competitive edge.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative flex gap-6 group cursor-default">
+          <div class="relative z-10 shrink-0">
+            <div
+              class="w-10 h-10 rounded-full bg-[#0F1729] border border-white/10 flex items-center justify-center group-hover:border-[#0598CE] group-hover:text-[#0598CE] transition-all duration-300 text-white/40 shadow-sm group-hover:shadow-[0_0_15px_rgba(5,152,206,0.3)]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                data-lucide="shield"
+                class="lucide lucide-shield w-5 h-5 stroke-[2]"
+                ><path
+                  d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                ></path></svg
+              >
+            </div>
+          </div>
+          <div class="pt-1">
+            <h3
+              class="group-hover:text-[#0598CE] transition-colors text-lg font-medium text-white mb-1"
+            >
+              End-to-End Server and Hardware Installation
+            </h3>
+            <p class="leading-relaxed text-sm font-normal text-slate-400">
+              Seamlessly deploy and configure secure, high-performance IT
+              infrastructure compliant with ISO 27001 and other international
+              standards, minimizing downtime and maximizing reliability for
+              mission-critical operations.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative flex gap-6 group cursor-default">
+          <div class="relative z-10 shrink-0">
+            <div
+              class="w-10 h-10 rounded-full bg-[#0F1729] border border-white/10 flex items-center justify-center group-hover:border-[#0598CE] group-hover:text-[#0598CE] transition-all duration-300 text-white/40 shadow-sm group-hover:shadow-[0_0_15px_rgba(5,152,206,0.3)]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                data-lucide="layout"
+                class="lucide lucide-layout w-5 h-5 stroke-[2]"
+                ><rect width="18" height="18" x="3" y="3" rx="2"></rect><path
+                  d="M3 9h18"></path><path d="M9 21V9"></path></svg
+              >
+            </div>
+          </div>
+          <div class="pt-1">
+            <h3
+              class="group-hover:text-[#0598CE] transition-colors text-lg font-medium text-white mb-1"
+            >
+              24/7 Technical Support
+            </h3>
+            <p class="leading-relaxed text-sm font-normal text-slate-400">
+              Experience uninterrupted business continuity with our
+              round-the-clock expert assistance, resolving issues swiftly via
+              proactive monitoring, remote diagnostics, and on-site intervention
+              to keep your systems running at peak efficiency.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners Section -->
+<section
+  id="OurPartners"
+  class="lg:py-32 overflow-hidden -multi bg-[#020408] w-full border-white/5 border-t pt-24 pb-24 relative"
+>
+  <div
+    class="pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#0598CE]/10 via-transparent to-transparent opacity-40 absolute top-0 right-0 bottom-0 left-0"
+  >
+  </div>
+
+  <div class="z-10 relative">
+    <div
+      class="flex flex-col md:flex-row gap-6 animate-on-scroll mx-12 mb-12 items-end justify-between animate"
+    >
+      <div class="space-y-4 max-w-1xl">
+        <h2
+          class="lg:text-5xl text-4xl font-semibold text-white tracking-tight"
+        >
+          Partners United for <span class="text-[#0598CE]"
+            >Digital Excellence</span
+          >
+        </h2>
+        <p class="leading-relaxed text-lg text-slate-400">
+          Partners leveraging our secure infrastructure to power scalable
+          digital transformation and mission-critical operations.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="overflow-hidden bg-[#0F1729]/30 border-white/5 border mt-8 relative backdrop-blur-sm"
+  >
+    <div class="overflow-hidden group bg-[#020408] w-full pt-8 pb-8 relative">
+      <div class="relative overflow-hidden">
+        <div
+          class="flex w-max animate-marquee-scroll hover:[animation-play-state:paused]"
+        >
+          <!-- Carouse Section 1 -->
+          <div class="flex gap-5 pr-2.5 pl-2.5 gap-x-5 gap-y-5">
+            <article class="marquee-card">
+              <Image
+                src={Logo1}
+                alt="Logo1"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Aragatsotn Regional Library</span
+                >
+              </div>
+            </article>
+
+            <article class="marquee-card">
+              <Image
+                src={Logo2}
+                alt="Logo2"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Source Foundation Supporting Children with Disabilities</span
+                >
+              </div>
+            </article>
+
+            <article class="marquee-card">
+              <Image
+                src={Logo3}
+                alt="Logo3"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Children and Youth Republican Center</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo4}
+                alt="Logo4"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Private Preschool Association of Armenia</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo5}
+                alt="Logo5"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Tigran Petrosyan Chess House Sports School</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo6}
+                alt="Logo6"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Indigami LLC</span
+                >
+              </div>
+            </article>
+          </div>
+          <!-- Carouse Section 2 -->
+          <div class="flex gap-5 pr-2.5 pl-2.5 gap-x-5 gap-y-5">
+            <article class="marquee-card">
+              <Image
+                src={Logo1}
+                alt="Logo1"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Aragatsotn Regional Library</span
+                >
+              </div>
+            </article>
+
+            <article class="marquee-card">
+              <Image
+                src={Logo2}
+                alt="Logo2"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Source Foundation Supporting Children with Disabilities</span
+                >
+              </div>
+            </article>
+
+            <article class="marquee-card">
+              <Image
+                src={Logo3}
+                alt="Logo3"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Children and Youth Republican Center</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo4}
+                alt="Logo4"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Private Preschool Association of Armenia</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo5}
+                alt="Logo5"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Tigran Petrosyan Chess House Sports School</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo6}
+                alt="Logo6"
+                style="width:100%; height:180px; object-fit:fit"
+              />
+
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >Indigami LLC</span
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
