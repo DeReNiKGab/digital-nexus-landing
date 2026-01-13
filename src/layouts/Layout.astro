@@ -88,6 +88,152 @@ import "../styles/global.css";
             .forEach((el) => layerObserver.observe(el));
         }
 
+        // Mobile menu (moved from Head.astro)
+        function initMobileMenu() {
+          const toggle = document.getElementById("nav-toggle");
+          const menu = document.getElementById("mobile-menu");
+          if (!toggle || !menu) return;
+
+          const svg = toggle.querySelector("svg");
+          const openPath = "M4 8h16M4 16h16";
+          const closePath = "M6 18L18 6M6 6l12 12";
+
+          function setIcon(isOpen: boolean) {
+            if (!svg) return;
+            svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${isOpen ? closePath : openPath}"></path>`;
+          }
+
+          function openMenu() {
+            if (!toggle || !menu) return;
+            toggle.setAttribute("aria-expanded", "true");
+            menu.classList.remove("hidden");
+            menu.setAttribute("aria-hidden", "false");
+            document.body.classList.add("overflow-hidden");
+            setIcon(true);
+          }
+
+          function closeMenu() {
+            if (!toggle || !menu) return;
+            toggle.setAttribute("aria-expanded", "false");
+            menu.classList.add("hidden");
+            menu.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("overflow-hidden");
+            setIcon(false);
+          }
+
+          toggle.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isOpen = toggle.getAttribute("aria-expanded") === "true";
+            if (isOpen) closeMenu();
+            else openMenu();
+          });
+
+          // Close on link click
+          menu.querySelectorAll("a").forEach((a) =>
+            a.addEventListener("click", () => {
+              closeMenu();
+            })
+          );
+
+          // Close on Escape
+          document.addEventListener("keydown", (ev: KeyboardEvent) => {
+            if (ev.key === "Escape") closeMenu();
+          });
+
+          // Click outside to close
+          document.addEventListener("click", (ev: Event) => {
+            const tgt = ev.target as Node | null;
+            if (
+              !menu.classList.contains("hidden") &&
+              tgt &&
+              !menu.contains(tgt) &&
+              !toggle.contains(tgt)
+            ) {
+              closeMenu();
+            }
+          });
+
+          // Ensure initial icon state
+          setIcon(false);
+        }
+        initMobileMenu();
+
+        // Mobile layers (moved from Body.astro)
+        function initMobileLayers() {
+          const descriptions: Record<number, string> = {
+            1: "Transform your ideas into market-ready applications through our comprehensive process from ideation to deployment and ongoing optimization.",
+            2: "Seamlessly deploy and configure secure, high-performance IT infrastructure with adherence to international standards and minimal downtime.",
+            3: "Round-the-clock expert support with proactive monitoring and rapid incident resolution to keep systems reliable.",
+            4: "Strategic advisory services including cybersecurity audits, digital transformation roadmaps, and compliance planning.",
+          };
+
+          const items = Array.from(
+            document.querySelectorAll(".mobile-layer-item")
+          );
+          const detail = document.getElementById("mobile-layer-detail");
+          const container = document.getElementById("mobile-layers");
+          if (!items.length || !detail || !container) return;
+
+          function setActive(idx: number) {
+            items.forEach((it) => {
+              const is = it.getAttribute("data-index") === String(idx);
+              it.classList.toggle("active", is);
+              it.setAttribute("aria-pressed", is ? "true" : "false");
+            });
+            if (detail) {
+              detail.textContent = descriptions[idx] || "";
+            }
+          }
+
+          items.forEach((it) => {
+            it.addEventListener("click", () => {
+              const idx = it.getAttribute("data-index");
+              if (idx) setActive(Number(idx));
+            });
+            it.addEventListener("keydown", (e) => {
+              const ke = e as KeyboardEvent;
+              if (ke.key === "Enter" || ke.key === " ") {
+                ke.preventDefault();
+                const idx = it.getAttribute("data-index");
+                if (idx) setActive(Number(idx));
+              }
+            });
+          });
+
+          // Entrance animation: staggered add of .enter class
+          let animated = false;
+          function animateEntrance() {
+            if (animated) return;
+            animated = true;
+            items.forEach((it, i) => {
+              setTimeout(() => it.classList.add("enter"), i * 90);
+            });
+          }
+
+          // Observe container so we animate only when it appears on screen on mobile widths
+          if (window.matchMedia("(max-width: 619px)").matches) {
+            const io = new IntersectionObserver(
+              (entries, obs) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    animateEntrance();
+                    obs.disconnect();
+                  }
+                });
+              },
+              { threshold: 0.12 }
+            );
+            io.observe(container);
+          } else {
+            // Desktop/tablet: ensure items are visible without animation
+            items.forEach((it) => it.classList.add("enter"));
+          }
+
+          // default: open first
+          setActive(1);
+        }
+        initMobileLayers();
+
         // 3. Stats Interaction (With Safety Check)
         const stats = document.querySelectorAll(".stat-item");
         const mainImage = document.getElementById(

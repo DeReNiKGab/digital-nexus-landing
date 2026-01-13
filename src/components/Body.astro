@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import Logo1 from "../assets/logo_1.png";
-import Logo2 from "../assets/logo_2.jpg";
-import Logo3 from "../assets/logo_3.png";
-import Logo4 from "../assets/logo_4.png";
-import Logo5 from "../assets/logo_5.png";
-import Logo6 from "../assets/logo_6.png";
+import Logo1 from "../assets/logo_1.webp";
+import Logo2 from "../assets/logo_2.webp";
+import Logo3 from "../assets/logo_3.webp";
+import Logo4 from "../assets/logo_4.webp";
+import Logo5 from "../assets/logo_5.webp";
+import Logo6 from "../assets/logo_6.webp";
 ---
 
 <!-- WhoWeAre Section  -->
@@ -272,81 +272,7 @@ import Logo6 from "../assets/logo_6.png";
         >
         </div>
 
-        <script>
-          (function () {
-            const descriptions = {
-              1: "Transform your ideas into market-ready applications through our comprehensive process from ideation to deployment and ongoing optimization.",
-              2: "Seamlessly deploy and configure secure, high-performance IT infrastructure with adherence to international standards and minimal downtime.",
-              3: "Round-the-clock expert support with proactive monitoring and rapid incident resolution to keep systems reliable.",
-              4: "Strategic advisory services including cybersecurity audits, digital transformation roadmaps, and compliance planning.",
-            };
-
-            const items = Array.from(
-              document.querySelectorAll(".mobile-layer-item")
-            );
-            const detail = document.getElementById("mobile-layer-detail");
-            const container = document.getElementById("mobile-layers");
-            if (!items.length || !detail || !container) return;
-
-            function setActive(idx: 1 | 2 | 3 | 4) {
-              items.forEach((it) => {
-                const is = it.getAttribute("data-index") === String(idx);
-                it.classList.toggle("active", is);
-                it.setAttribute("aria-pressed", is ? "true" : "false");
-              });
-              if (detail) {
-                detail.textContent = descriptions[idx] || "";
-              }
-            }
-
-            items.forEach((it) => {
-              it.addEventListener("click", () => {
-                const idx = it.getAttribute("data-index");
-                if (idx) setActive(Number(idx) as 1 | 2 | 3 | 4);
-              });
-              it.addEventListener("keydown", (e: Event) => {
-                const keyEvent = e as KeyboardEvent;
-                if (keyEvent.key === "Enter" || keyEvent.key === " ") {
-                  keyEvent.preventDefault();
-                  const idx = it.getAttribute("data-index");
-                  if (idx) setActive(Number(idx) as 1 | 2 | 3 | 4);
-                }
-              });
-            });
-
-            // Entrance animation: staggered add of .enter class
-            let animated = false;
-            function animateEntrance() {
-              if (animated) return;
-              animated = true;
-              items.forEach((it, i) => {
-                setTimeout(() => it.classList.add("enter"), i * 90);
-              });
-            }
-
-            // Observe container so we animate only when it appears on screen on mobile widths
-            if (window.matchMedia("(max-width: 619px)").matches) {
-              const io = new IntersectionObserver(
-                (entries, obs) => {
-                  entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                      animateEntrance();
-                      obs.disconnect();
-                    }
-                  });
-                },
-                { threshold: 0.12 }
-              );
-              io.observe(container);
-            } else {
-              // Desktop/tablet: ensure items are visible without animation
-              items.forEach((it) => it.classList.add("enter"));
-            }
-
-            // default: open first
-            setActive(1);
-          })();
-        </script>
+        <!-- Mobile layers script moved to Layout.astro -->
       </div>
     </div>
 
@@ -379,8 +305,7 @@ import Logo6 from "../assets/logo_6.png";
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                data-lucide="activity"
-                class="lucide lucide-activity w-5 h-5 stroke-[2]"
+                class="w-5 h-5 stroke-[2]"
                 ><path
                   d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
                 ></path></svg
@@ -417,8 +342,7 @@ import Logo6 from "../assets/logo_6.png";
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                data-lucide="cloud"
-                class="lucide lucide-cloud w-5 h-5 stroke-[2]"
+                class="w-5 h-5 stroke-[2]"
                 ><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"
                 ></path></svg
               >
@@ -454,8 +378,7 @@ import Logo6 from "../assets/logo_6.png";
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                data-lucide="shield"
-                class="lucide lucide-shield w-5 h-5 stroke-[2]"
+                class="w-5 h-5 stroke-[2]"
                 ><path
                   d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
                 ></path></svg
@@ -492,8 +415,7 @@ import Logo6 from "../assets/logo_6.png";
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                data-lucide="layout"
-                class="lucide lucide-layout w-5 h-5 stroke-[2]"
+                class="w-5 h-5 stroke-[2]"
                 ><rect width="18" height="18" x="3" y="3" rx="2"></rect><path
                   d="M3 9h18"></path><path d="M9 21V9"></path></svg
               >
@@ -540,7 +462,7 @@ import Logo6 from "../assets/logo_6.png";
             >Digital Excellence</span
           >
         </h2>
-        <p class="leading-relaxed text-lg text-slate-400">
+        <p class="leading-relaxed text-lg text-slate-300">
           Partners leveraging our secure infrastructure to power scalable
           digital transformation and mission-critical operations.
         </p>
@@ -562,7 +484,10 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo1}
                 alt="Logo1"
-                style="width:100%; height:180px; object-fit:fit"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
               />
               <div
                 style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
@@ -578,7 +503,10 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo2}
                 alt="Logo2"
-                style="width:100%; height:180px; object-fit:fit"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
               />
               <div
                 style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000"
@@ -594,7 +522,10 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo3}
                 alt="Logo3"
-                style="width:100%; height:180px; object-fit:fit"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
               />
               <div
                 style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
@@ -609,7 +540,10 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo4}
                 alt="Logo4"
-                style="width:100%; height:180px; object-fit:fit"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
               />
               <div
                 style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
@@ -624,7 +558,10 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo5}
                 alt="Logo5"
-                style="width:100%; height:180px; object-fit:fit"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
               />
 
               <div
@@ -640,7 +577,10 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo6}
                 alt="Logo6"
-                style="width:100%; height:180px; object-fit:fit"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
               />
 
               <div
@@ -654,12 +594,21 @@ import Logo6 from "../assets/logo_6.png";
             </article>
           </div>
           <!-- Carouse Section 2 -->
-          <div class="flex gap-5 pr-2.5 pl-2.5 gap-x-5 gap-y-5">
+          <div
+            role="region"
+            aria-label="Partners carousel"
+            class="flex gap-5 pr-2.5 pl-2.5 gap-x-5 gap-y-5"
+          >
             <article class="marquee-card">
               <Image
                 src={Logo1}
                 alt="Logo1"
-                style="width:100%; height:180px; object-fit:fit"
+                width={800}
+                height={414}
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                style="width:100%; aspect-ratio:1318/683; object-fit:contain; display:block"
               />
               <div
                 style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
@@ -675,7 +624,12 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo2}
                 alt="Logo2"
-                style="width:100%; height:180px; object-fit:fit"
+                width={800}
+                height={480}
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                style="width:100%; aspect-ratio:1500/900; object-fit:contain; display:block"
               />
               <div
                 style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000"
@@ -691,7 +645,12 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo3}
                 alt="Logo3"
-                style="width:100%; height:180px; object-fit:fit"
+                width={800}
+                height={373}
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                style="width:100%; aspect-ratio:1536/716; object-fit:contain; display:block"
               />
               <div
                 style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
@@ -706,7 +665,12 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo4}
                 alt="Logo4"
-                style="width:100%; height:180px; object-fit:fit"
+                width={800}
+                height={373}
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                style="width:100%; aspect-ratio:1500/700; object-fit:contain; display:block"
               />
               <div
                 style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000;"
@@ -721,7 +685,12 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo5}
                 alt="Logo5"
-                style="width:100%; height:180px; object-fit:fit"
+                width={800}
+                height={372}
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                style="width:100%; aspect-ratio:1506/701; object-fit:contain; display:block"
               />
 
               <div
@@ -737,7 +706,12 @@ import Logo6 from "../assets/logo_6.png";
               <Image
                 src={Logo6}
                 alt="Logo6"
-                style="width:100%; height:180px; object-fit:fit"
+                width={800}
+                height={374}
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                style="width:100%; aspect-ratio:1500/701; object-fit:contain; display:block"
               />
 
               <div
