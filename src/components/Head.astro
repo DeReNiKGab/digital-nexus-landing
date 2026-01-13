@@ -6,6 +6,7 @@ import MainLogo from "../assets/Logo_Main.jpg";
 <!-- Background Animation Canvas -->
 <canvas
   id="network-canvas"
+  aria-hidden="true"
   class="fixed inset-0 w-full h-full -z-10 pointer-events-none"
   width="1920"
   height="868"></canvas>
@@ -37,12 +38,36 @@ import MainLogo from "../assets/Logo_Main.jpg";
           fetchpriority="high"
         />
       </div>
-      <span class="font-bold tracking-tight text-lg text-white"
+      <span class="font-bold tracking-tight md:text-md lg:text-lg text-white"
         >DIGITAL NEXUS</span
       >
     </a>
 
     <div class="hidden h-5 w-px bg-white/10"></div>
+
+    <!-- Mobile menu button -->
+    <button
+      id="nav-toggle"
+      type="button"
+      class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white focus:outline-none"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      aria-label="Open menu"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 8h16M4 16h16"></path>
+      </svg>
+    </button>
 
     <a
       href="#WhoWeAre"
@@ -70,16 +95,107 @@ import MainLogo from "../assets/Logo_Main.jpg";
     >
   </div>
 </nav>
+
+<!-- Mobile Menu -->
+<div
+  id="mobile-menu"
+  role="menu"
+  aria-hidden="true"
+  class="hidden md:hidden absolute left-0 right-0 bg-[#020408] border-t border-white/5 py-4 z-50"
+>
+  <div class="flex flex-col items-center gap-3">
+    <a href="#WhoWeAre" class="text-slate-300">Who we are</a>
+    <a href="#Services" class="text-slate-300">Services</a>
+    <a href="#OurPartners" class="text-slate-300">Our Partners</a>
+    <a href="#ContactUs" class="text-slate-300">Contact us</a>
+  </div>
+</div>
+
+<script>
+  (function () {
+    function initMobileMenu() {
+      const toggle = document.getElementById("nav-toggle");
+      const menu = document.getElementById("mobile-menu");
+      if (!toggle || !menu) return;
+
+      const svg = toggle.querySelector("svg");
+      const openPath = `M4 8h16M4 16h16`;
+      const closePath = `M6 18L18 6M6 6l12 12`;
+
+      function setIcon(isOpen: boolean) {
+        if (!svg) return;
+        svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${isOpen ? closePath : openPath}"></path>`;
+      }
+
+      function openMenu() {
+        if (!toggle || !menu) return;
+        toggle.setAttribute("aria-expanded", "true");
+        menu.classList.remove("hidden");
+        menu.setAttribute("aria-hidden", "false");
+        document.body.classList.add("overflow-hidden");
+        setIcon(true);
+      }
+
+      function closeMenu() {
+        if (!toggle || !menu) return;
+        toggle.setAttribute("aria-expanded", "false");
+        menu.classList.add("hidden");
+        menu.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("overflow-hidden");
+        setIcon(false);
+      }
+
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = toggle.getAttribute("aria-expanded") === "true";
+        if (isOpen) closeMenu();
+        else openMenu();
+      });
+
+      // Close on link click
+      menu.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          closeMenu();
+        })
+      );
+
+      // Close on Escape
+      document.addEventListener("keydown", (ev) => {
+        if (ev.key === "Escape") closeMenu();
+      });
+
+      // Click outside to close
+      document.addEventListener("click", (ev) => {
+        if (
+          !menu.classList.contains("hidden") &&
+          !menu.contains(ev.target as Node) &&
+          !toggle.contains(ev.target as Node)
+        ) {
+          closeMenu();
+        }
+      });
+
+      // Ensure initial icon state
+      setIcon(false);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initMobileMenu);
+    } else {
+      initMobileMenu();
+    }
+  })();
+</script>
+
 <!-- Main Content Area -->
 <main
   class="hero-container flex-grow flex flex-col items-center justify-center relative overflow-hidden"
 >
   <h1
     id="nexus-title"
-    class="font-bold tracking-[0.2em] text-5xl md:text-8xl text-white flex flex-wrap justify-center items-center"
+    class="font-bold tracking-[0.2em] text-5xl gap-[15px] sm:text-5xl md:text-6xl lg:text-8xl text-white flex flex-wrap sm:gap-[0.5rem] md:gap-[1.5rem] lg:gap-[2.5rem] justify-center items-center"
   >
     <span class="word inline-block" data-text="DIGITAL"></span>
-    <span class="inline-block w-8 md:w-16"></span>
     <span class="word inline-block" data-text="NEXUS"></span>
   </h1>
 

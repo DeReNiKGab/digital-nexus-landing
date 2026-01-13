@@ -6,7 +6,10 @@ import "../styles/global.css";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -31,15 +34,17 @@ import "../styles/global.css";
       const words = document.querySelectorAll(".word");
       words.forEach((word) => {
         const text = word.getAttribute("data-text");
-        word.innerHTML = text
-          .split("")
-          .map((char) => {
-            const dir = Math.floor(Math.random() * 5);
-            const delay = Math.random() * 1.2;
-            return `<span class="letter inline-block opacity-0 dir-${dir}" 
-                style="animation-delay: ${delay}s">${char}</span>`;
-          })
-          .join("");
+        if (text) {
+          word.innerHTML = text
+            .split("")
+            .map((char) => {
+              const dir = Math.floor(Math.random() * 5);
+              const delay = Math.random() * 1.2;
+              return `<span class="letter inline-block opacity-0 dir-${dir}" 
+                  style="animation-delay: ${delay}s">${char}</span>`;
+            })
+            .join("");
+        }
       });
       // Wrap in a function to keep it organized
       const initPage = () => {
@@ -63,6 +68,25 @@ import "../styles/global.css";
         document
           .querySelectorAll(".animate-on-scroll")
           .forEach((el) => observer.observe(el));
+
+        // Mobile-only layer entrance animations
+        if (window.innerWidth <= 640) {
+          const layerObserver = new IntersectionObserver(
+            (entries, obs) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("in-view");
+                  obs.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12 }
+          );
+
+          document
+            .querySelectorAll(".mobile-layer-anim")
+            .forEach((el) => layerObserver.observe(el));
+        }
 
         // 3. Stats Interaction (With Safety Check)
         const stats = document.querySelectorAll(".stat-item");
@@ -224,16 +248,3 @@ import "../styles/global.css";
     </script>
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-</style>

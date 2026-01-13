@@ -10,6 +10,9 @@
   --border-light: rgba(255, 255, 255, 0.1);
 }
 html {
+  margin: 0;
+  width: 100%;
+  height: 100%;
   scroll-behavior: smooth;
 }
 body {
@@ -17,7 +20,74 @@ body {
   background-color: var(--bg-main);
   color: var(--text-main);
 }
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+/* Mobile-only container hidden by default; shown only under 620px via media query */
+.mobile-only {
+  display: none;
+}
+@media (max-width: 640px) {
+  #network-canvas {
+    display: none;
+  }
 
+  /* Mobile-only entrance animation for layered visual */
+  .mobile-layer-anim {
+    opacity: 0;
+    transform: translateY(20px) !important;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .mobile-layer-anim.in-view {
+    opacity: 1;
+    transform: translateY(0) !important;
+  }
+
+  /* Mobile simplified stack item styles */
+  .mobile-layer-item {
+    cursor: pointer;
+    /* initial state for enter animation */
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 0.36s cubic-bezier(0.2, 0.9, 0.2, 1),
+      transform 0.36s cubic-bezier(0.2, 0.9, 0.2, 1),
+      box-shadow 0.2s ease,
+      border-color 0.18s ease,
+      background 0.18s ease;
+  }
+
+  .mobile-layer-item.enter {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobile-layer-item:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(5, 152, 206, 0.06);
+  }
+
+  .mobile-layer-item.active {
+    border-color: var(--action-accent);
+    background: rgba(5, 152, 206, 0.03);
+    box-shadow: 0 8px 20px rgba(5, 152, 206, 0.08);
+  }
+
+  /* Hide simplified mobile stack by default (shown via media query under 620px) */
+  .mobile-only {
+    display: none;
+  }
+}
+
+@media (max-width: 619px) {
+  .mobile-only {
+    display: block;
+  }
+}
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
