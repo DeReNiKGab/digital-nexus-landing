@@ -83,7 +83,7 @@ body {
   }
 }
 
-@media (max-width: 619px) {
+@media (max-width: 639px) {
   .mobile-only {
     display: block;
   }
