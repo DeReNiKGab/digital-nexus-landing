@@ -29,10 +29,6 @@ body {
   display: none;
 }
 @media (max-width: 640px) {
-  #network-canvas {
-    display: none;
-  }
-
   /* Mobile-only entrance animation for layered visual */
   .mobile-layer-anim {
     opacity: 0;
