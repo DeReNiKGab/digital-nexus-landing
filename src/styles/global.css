@@ -480,3 +480,23 @@ body {
 #nexus-title {
   text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95); /* Starts slightly smaller */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* Ends at full size */
+  }
+}
+
+.animate-fade-in {
+  /* 3s is the duration, ease-in-out makes it smooth */
+  /* 'forwards' ensures it stays visible after the animation ends */
+  animation: fadeIn 3s ease-in-out forwards;
+
+  /* This ensures the animation doesn't "blink" at the start */
+  animation-fill-mode: forwards;
+}

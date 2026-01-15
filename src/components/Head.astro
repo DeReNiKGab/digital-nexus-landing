@@ -59,9 +59,10 @@ const GA_ID = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID ?? null;
 <canvas
   id="network-canvas"
   aria-hidden="true"
-  class="fixed inset-0 w-full h-full -z-10 pointer-events-none"
+  class="fixed inset-0 w-full h-full -z-10 pointer-events-none md:pointer-events-auto"
   width="1920"
-  height="868"></canvas>
+  height="868">
+</canvas>
 
 <!-- Deep Gradient Overlay -->
 <div
@@ -167,9 +168,18 @@ const GA_ID = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID ?? null;
 <main
   class="hero-container flex-grow flex flex-col items-center justify-center relative overflow-hidden"
 >
+ 
+  <Image
+    src={MainLogo}
+    alt="Digital Nexus Logo"
+    class="md:h-50 md:w-50 h-40 w-40 lg:h-60 lg:w-60 opacity-0 animate-fade-in" 
+    loading="eager"
+    fetchpriority="high"
+  />
+    
   <h1
     id="nexus-title"
-    class="font-bold tracking-[0.2em] text-5xl gap-[15px] sm:text-5xl md:text-6xl lg:text-8xl text-white flex flex-wrap sm:gap-[0.5rem] md:gap-[1.5rem] lg:gap-[2.5rem] justify-center items-center"
+    class="font-bold mt-[50px] tracking-[0.2em] text-5xl gap-[15px] sm:text-5xl md:text-6xl lg:text-8xl text-white flex flex-wrap sm:gap-[0.5rem] md:gap-[1.5rem] lg:gap-[2.5rem] justify-center items-center"
   >
     <span class="word inline-block" data-text="DIGITAL"></span>
     <span class="word inline-block" data-text="NEXUS"></span>
