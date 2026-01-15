@@ -160,13 +160,6 @@ import "../styles/global.css";
 
         // Mobile layers (moved from Body.astro)
         function initMobileLayers() {
-          const descriptions: Record<number, string> = {
-            1: "Transform your ideas into market-ready applications through our comprehensive process from ideation to deployment and ongoing optimization.",
-            2: "Seamlessly deploy and configure secure, high-performance IT infrastructure with adherence to international standards and minimal downtime.",
-            3: "Round-the-clock expert support with proactive monitoring and rapid incident resolution to keep systems reliable.",
-            4: "Strategic advisory services including cybersecurity audits, digital transformation roadmaps, and compliance planning.",
-          };
-
           const items = Array.from(
             document.querySelectorAll(".mobile-layer-item")
           );
@@ -180,9 +173,6 @@ import "../styles/global.css";
               it.classList.toggle("active", is);
               it.setAttribute("aria-pressed", is ? "true" : "false");
             });
-            if (detail) {
-              detail.textContent = descriptions[idx] || "";
-            }
           }
 
           items.forEach((it) => {
