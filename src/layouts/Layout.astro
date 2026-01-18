@@ -13,7 +13,7 @@ import "../styles/global.css";
     <link
       rel="icon"
       type="image/svg+xml"
-      href="digital-nexus-landing/src/assets/Logo_Main.jpg"
+      href="digital-nexus-landing/src/assets/Logo_Main.webp"
     />
     <title>DigitALL Nexus | Enterprise IT Support</title>
     <link
@@ -62,7 +62,7 @@ import "../styles/global.css";
               }
             });
           },
-          { threshold: 0.1 }
+          { threshold: 0.1 },
         );
 
         document
@@ -80,7 +80,7 @@ import "../styles/global.css";
                 }
               });
             },
-            { threshold: 0.12 }
+            { threshold: 0.12 },
           );
 
           document
@@ -132,7 +132,7 @@ import "../styles/global.css";
           menu.querySelectorAll("a").forEach((a) =>
             a.addEventListener("click", () => {
               closeMenu();
-            })
+            }),
           );
 
           // Close on Escape
@@ -161,7 +161,7 @@ import "../styles/global.css";
         // Mobile layers (moved from Body.astro)
         function initMobileLayers() {
           const items = Array.from(
-            document.querySelectorAll(".mobile-layer-item")
+            document.querySelectorAll(".mobile-layer-item"),
           );
           const detail = document.getElementById("mobile-layer-detail");
           const container = document.getElementById("mobile-layers");
@@ -211,7 +211,7 @@ import "../styles/global.css";
                   }
                 });
               },
-              { threshold: 0.12 }
+              { threshold: 0.12 },
             );
             io.observe(container);
           } else {
@@ -227,7 +227,7 @@ import "../styles/global.css";
         // 3. Stats Interaction (With Safety Check)
         const stats = document.querySelectorAll(".stat-item");
         const mainImage = document.getElementById(
-          "main-image"
+          "main-image",
         ) as HTMLImageElement;
 
         if (stats.length > 0 && mainImage) {
@@ -240,7 +240,7 @@ import "../styles/global.css";
           stats.forEach((stat) => {
             stat.addEventListener("click", () => {
               const imgId = stat.getAttribute(
-                "data-img-id"
+                "data-img-id",
               ) as unknown as keyof typeof images;
               stats.forEach((s) => s.classList.remove("active"));
               stat.classList.add("active");
@@ -257,7 +257,7 @@ import "../styles/global.css";
 
         // 4. BACKGROUND ANIMATION (With Safety Check)
         const canvas = document.getElementById(
-          "network-canvas"
+          "network-canvas",
         ) as HTMLCanvasElement;
         if (canvas) {
           const ctx = canvas.getContext("2d");
