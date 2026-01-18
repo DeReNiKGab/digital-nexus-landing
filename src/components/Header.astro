@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+import MainLogo from "../assets/Logo_Main.webp";
+---
+
+<!-- Navbar -->
+<nav
+  class="lg:px-12 flex z-50 animate-on-scroll animate bg-[#020408]/80 w-full border-white/5 border-b pt-6 pr-6 pb-6 pl-6 relative backdrop-blur-md items-center justify-between"
+>
+  <div class="flex gap-12 gap-x-12 gap-y-12 items-center">
+    <!-- Logo -->
+    <a
+       href="https://derenikgab.github.io/digital-nexus-landing/"
+      class="flex items-center gap-3 text-white hover:text-[#D3D3D3] transition-colors group"
+    >
+      <div
+        class="group-hover:bg-[#D3D3D3]/20 transition-colors group-hover:border-[#D3D3D3]/50 bg-white/5 border-white/10 border rounded-lg pt-1.5 pr-1.5 pb-1.5 pl-1.5"
+      >
+        <Image
+          src={MainLogo}
+          alt="DigitALL Nexus Logo"
+          class="h-8 w-8"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <span class="font-bold tracking-tight md:text-md lg:text-lg text-white"
+        >DIGITALL NEXUS</span
+      >
+    </a>
+
+    <div class="hidden h-5 w-px bg-white/10"></div>
+
+    <!-- Mobile menu button -->
+    <button
+      id="nav-toggle"
+      type="button"
+      class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white focus:outline-none"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      aria-label="Open menu"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 8h16M4 16h16"></path>
+      </svg>
+    </button>
+
+    <a
+      href="#WhoWeAre"
+      class="hidden md:flex gap-2 hover:text-white transition-colors group gap-x-2 gap-y-2 items-center text-sm font-medium text-slate-400"
+    >
+      Who we are</a
+    >
+    <a
+      href="#Services"
+      class="hidden md:flex hover:text-white transition-colors group gap-x-2 gap-y-2 items-center text-sm font-medium text-slate-400"
+    >
+      Services</a
+    >
+    <a
+      href="#OurPartners"
+      class="hidden md:flex gap-2 hover:text-white transition-colors group gap-x-2 gap-y-2 items-center text-sm font-medium text-slate-400"
+    >
+      Our Partners</a
+    >
+    <a
+      href="#ContactUs"
+      class="hidden md:flex gap-2 hover:text-white transition-colors group gap-x-2 gap-y-2 items-center text-sm font-medium text-slate-400"
+    >
+      Contact us</a
+    >
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div
+  id="mobile-menu"
+  role="menu"
+  aria-hidden="true"
+  class="hidden md:hidden absolute left-0 right-0 bg-[#020408] border-t border-white/5 py-4 z-50"
+>
+  <div class="flex flex-col items-center gap-3">
+    <a href="#WhoWeAre" class="text-slate-300">Who we are</a>
+    <a href="#Services" class="text-slate-300">Services</a>
+    <a href="#OurPartners" class="text-slate-300">Our Partners</a>
+    <a href="#ContactUs" class="text-slate-300">Contact us</a>
+  </div>
+</div>

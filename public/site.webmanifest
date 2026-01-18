@@ -1,0 +1,16 @@
+{
+  "name": "DIGITAL NEXUS",
+  "short_name": "NEXUS",
+  "start_url": "/digital-nexus-landing/",
+  "display": "standalone",
+  "background_color": "#020408",
+  "theme_color": "#020408",
+  "icons": [
+    {
+      "src": "/digital-nexus-landing/favicon.webp",
+      "sizes": "any",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
