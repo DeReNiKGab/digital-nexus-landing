@@ -70,24 +70,27 @@ const navLinks = [
       </svg>
     </button>
 
-    {navLinks.map((link) => (
-      <a
-        href={link.href}
-        class="hidden md:flex gap-2 hover:text-white transition-colors group gap-x-2 gap-y-2 items-center text-sm font-medium text-slate-400"
-      >
-        {link.label}
-      </a>
-    ))}
+    {
+      navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="hidden md:flex gap-2 hover:text-white transition-colors group gap-x-2 gap-y-2 items-center text-sm font-medium text-slate-400"
+        >
+          {link.label}
+        </a>
+      ))
+    }
   </div>
 
   <!-- Language Switcher -->
-  <div class="hidden md:flex items-center gap-2">
+
+  <!-- <div class="hidden md:flex items-center gap-2">
     <a href="/digital-nexus-landing/ru/" class={`text-sm font-medium ${lang === 'ru' ? 'text-white' : 'text-slate-400 hover:text-white'}`}>RU</a>
     <span class="text-slate-600">/</span>
     <a href="/digital-nexus-landing/en/" class={`text-sm font-medium ${lang === 'en' ? 'text-white' : 'text-slate-400 hover:text-white'}`}>EN</a>
     <span class="text-slate-600">/</span>
     <a href="/digital-nexus-landing/am/" class={`text-sm font-medium ${lang === 'am' ? 'text-white' : 'text-slate-400 hover:text-white'}`}>AM</a>
-  </div>
+  </div> -->
 </nav>
 
 <!-- Mobile Menu -->
@@ -98,13 +101,31 @@ const navLinks = [
   class="hidden md:hidden absolute left-0 right-0 bg-[#020408] border-t border-white/5 py-4 z-50"
 >
   <div class="flex flex-col items-center gap-3">
-    {navLinks.map((link) => (
-      <a href={link.href} class="text-slate-300">{link.label}</a>
-    ))}
-    <div class="flex items-center gap-4 mt-4 pt-4 border-t border-white/10 w-full justify-center">
-      <a href="/digital-nexus-landing/ru/" class={`text-sm font-medium ${lang === 'ru' ? 'text-white' : 'text-slate-400'}`}>RU</a>
-      <a href="/digital-nexus-landing/en/" class={`text-sm font-medium ${lang === 'en' ? 'text-white' : 'text-slate-400'}`}>EN</a>
-      <a href="/digital-nexus-landing/am/" class={`text-sm font-medium ${lang === 'am' ? 'text-white' : 'text-slate-400'}`}>AM</a>
+    {
+      navLinks.map((link) => (
+        <a href={link.href} class="text-slate-300">
+          {link.label}
+        </a>
+      ))
+    }
+    <div
+      class="flex items-center gap-4 mt-4 pt-4 border-t border-white/10 w-full justify-center"
+    >
+      <a
+        href="/digital-nexus-landing/ru/"
+        class={`text-sm font-medium ${lang === "ru" ? "text-white" : "text-slate-400"}`}
+        >RU</a
+      >
+      <a
+        href="/digital-nexus-landing/en/"
+        class={`text-sm font-medium ${lang === "en" ? "text-white" : "text-slate-400"}`}
+        >EN</a
+      >
+      <a
+        href="/digital-nexus-landing/am/"
+        class={`text-sm font-medium ${lang === "am" ? "text-white" : "text-slate-400"}`}
+        >AM</a
+      >
     </div>
   </div>
 </div>
