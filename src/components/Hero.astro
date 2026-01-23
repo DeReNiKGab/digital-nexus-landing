@@ -1,6 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import MainLogo from "../assets/Logo_Main.webp";
+
+import { useTranslations, ui } from "../i18n/ui";
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 <!-- Main Content Area -->
 <main
@@ -19,8 +28,8 @@ import MainLogo from "../assets/Logo_Main.webp";
     id="nexus-title"
     class="font-bold mt-[50px] tracking-[0.2em] text-5xl gap-[15px] sm:text-5xl md:text-6xl lg:text-8xl text-white flex flex-wrap sm:gap-[0.5rem] md:gap-[1.5rem] lg:gap-[2.5rem] justify-center items-center"
   >
-    <span class="word inline-block" data-text="DIGITALL"></span>
-    <span class="word inline-block" data-text="NEXUS"></span>
+    <span class="word inline-block" data-text={t("hero.title.digitall")}>{t("hero.title.digitall")}</span>
+    <span class="word inline-block" data-text={t("hero.title.nexus")}>{t("hero.title.nexus")}</span>
   </h1>
 
   <div class="h-1 bg-blue-500 mt-8 animate-width-grow"></div>

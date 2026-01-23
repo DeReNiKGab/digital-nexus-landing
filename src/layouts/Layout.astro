@@ -2,8 +2,16 @@
 import "../styles/global.css";
 import MainLogo from "../assets/Logo_Main.webp";
 
+export interface Props {
+  title?: string;
+  lang?: string;
+}
+
+const { title, lang = "en" } = Astro.props;
+
 const SITE_TITLE = "DIGITALL NEXUS";
-const SITE_DESCRIPTION = "DigitALL Nexus — design and build connected experiences.";
+const SITE_DESCRIPTION =
+  "DigitALL Nexus — design and build connected experiences.";
 const OG_IMAGE = MainLogo.src;
 const SITE_TWITTER = import.meta.env.PUBLIC_TWITTER ?? "@DigitALLNexus";
 const GA_ID = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID ?? null;
@@ -11,21 +19,33 @@ const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <title>{SITE_TITLE}</title>
     <meta name="description" content={SITE_DESCRIPTION} />
-    <meta name="keywords" content="web design, web development, digital agency, ux, ui, branding" />
+    <meta
+      name="keywords"
+      content="web design, web development, digital agency, ux, ui, branding"
+    />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#020408" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="icon" href={`${BASE_URL}/favicon.svg`} />
-    <link rel="mask-icon" href={`${BASE_URL}/favicon.svg`} color="#0598ce" />
+    <link rel="icon" href={MainLogo.src} />
+    <link rel="mask-icon" href={MainLogo.src} color="#0598ce" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="preload" as="image" href={MainLogo.src} fetchpriority="high" />
 
     <meta property="og:type" content="website" />
@@ -42,15 +62,31 @@ const BASE_URL = import.meta.env.BASE_URL;
 
     <link rel="manifest" href={`${BASE_URL}/site.webmanifest`} />
 
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": SITE_TITLE,
-      "logo": OG_IMAGE
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: SITE_TITLE,
+        logo: OG_IMAGE,
+      })}
+    />
 
-    {GA_ID && <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>}
-    {GA_ID && <script define:vars={{GA_ID}}>{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${GA_ID}', { 'anonymize_ip': true });`}</script>}
+    {
+      GA_ID && (
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        />
+      )
+    }
+    {
+      GA_ID && (
+        <script
+          define:vars={{ GA_ID }}
+        >{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${GA_ID}', { 'anonymize_ip': true });`}</script>
+      )
+    }
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
@@ -64,7 +100,8 @@ const BASE_URL = import.meta.env.BASE_URL;
       aria-hidden="true"
       class="fixed inset-0 w-full h-full -z-10 pointer-events-none md:pointer-events-auto"
       width="1920"
-      height="868">
+      height="868"
+    >
     </canvas>
 
     <!-- Deep Gradient Overlay -->

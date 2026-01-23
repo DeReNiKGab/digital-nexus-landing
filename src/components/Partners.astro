@@ -6,7 +6,19 @@ import Logo3 from "../assets/logo_3.webp";
 import Logo4 from "../assets/logo_4.webp";
 import Logo5 from "../assets/logo_5.webp";
 import Logo6 from "../assets/logo_6.webp";
+import Logo7 from "../assets/CECPSR Foundation.webp";
+import Logo8 from "../assets/CyberZ Foundation.webp";
+import Logo9 from "../assets/MPP Insights.webp";
+import { useTranslations, ui } from "../i18n/ui";
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
+
 <!-- Partners Section -->
 <section
   id="OurPartners"
@@ -25,13 +37,11 @@ import Logo6 from "../assets/logo_6.webp";
         <h2
           class="lg:text-5xl text-4xl font-semibold text-white tracking-tight"
         >
-          Partners United for <span class="text-[#0598CE]"
-            >Digital Excellence</span
-          >
+          {t("partners.title_prefix")}
+          <span class="text-[#0598CE]">{t("partners.title_highlight")}</span>
         </h2>
         <p class="leading-relaxed text-lg text-slate-300">
-          Partners leveraging our secure infrastructure to power scalable
-          digital transformation and mission-critical operations.
+          {t("partners.desc")}
         </p>
       </div>
     </div>
@@ -159,9 +169,64 @@ import Logo6 from "../assets/logo_6.webp";
                 >
               </div>
             </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo7}
+                alt="Logo7"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >China-Eurasia" Council for Political and Strategic Research -
+                  CECPSR Foundation</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo8}
+                alt="Logo8"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >CyberZ Foundation</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo9}
+                alt="Logo9"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >MPP Insights</span
+                >
+              </div>
+            </article>
           </div>
           <!-- Carouse Section 2 -->
-           <div class="flex gap-5 pr-2.5 pl-2.5 gap-x-5 gap-y-5">
+          <div class="flex gap-5 pr-2.5 pl-2.5 gap-x-5 gap-y-5">
             <article class="marquee-card">
               <Image
                 src={Logo1}
@@ -271,6 +336,61 @@ import Logo6 from "../assets/logo_6.webp";
                 <span
                   class="leading-tight text-lg font-bold text-white tracking-wide text-center"
                   >Source Foundation Supporting Children with Disabilities</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo7}
+                alt="Logo7"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >China-Eurasia" Council for Political and Strategic Research -
+                  CECPSR Foundation</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo8}
+                alt="Logo8"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >CyberZ Foundation</span
+                >
+              </div>
+            </article>
+            <article class="marquee-card">
+              <Image
+                src={Logo9}
+                alt="Logo9"
+                width={300}
+                height={180}
+                loading="lazy"
+                class="h-44 w-auto object-contain"
+              />
+              <div
+                style="flex-grow:1; display:flex; align-items:center; justify-content:center; padding:0 1.5rem; background:#000"
+              >
+                <span
+                  class="leading-tight text-lg font-bold text-white tracking-wide text-center"
+                  >MPP Insights</span
                 >
               </div>
             </article>

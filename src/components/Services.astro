@@ -1,4 +1,12 @@
 ---
+import { useTranslations, ui } from "../i18n/ui";
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 <!-- Services Section DigiAll Nexus-->
 <section
@@ -28,7 +36,7 @@
             >
               <span
                 class="uppercase whitespace-nowrap text-xs font-semibold text-white tracking-wider"
-                >04.Consulting</span
+                >04.{t("services.consulting.title")}</span
               >
             </div>
           </div>
@@ -50,7 +58,7 @@
             >
               <span
                 class="uppercase whitespace-nowrap text-xs font-semibold text-white tracking-wider"
-                >03. End-to-End Server Setup</span
+                >03. {t("services.server_hw.title")}</span
               >
             </div>
           </div>
@@ -72,7 +80,7 @@
             >
               <span
                 class="uppercase whitespace-nowrap text-xs font-semibold text-white tracking-wider"
-                >02. 24/7 Technical Support</span
+                >02. {t("services.support.title")}</span
               >
             </div>
           </div>
@@ -94,7 +102,7 @@
             >
               <span
                 class="uppercase whitespace-nowrap text-xs font-semibold text-white tracking-wider"
-                >01. Full-Cycle Software Development</span
+                >01. {t("services.full_cycle.title")}</span
               >
             </div>
           </div>
@@ -107,7 +115,7 @@
       <h2
         class="lg:text-5xl leading-[1.1] text-4xl font-semibold text-white tracking-tight mb-6"
       >
-        Services
+        {t("services.title")}
       </h2>
       <!-- Mobile simplified stack (touch-first) -->
       <div
@@ -124,7 +132,7 @@
             <div class="flex items-center gap-4">
               <span class="text-2xl font-bold text-[#0598CE]/40">01</span>
               <span class="text-white font-semibold"
-                >Full-Cycle Development</span
+                >{t("services.full_cycle.title")}</span
               >
             </div>
             <svg
@@ -149,7 +157,7 @@
             <div class="flex items-center gap-4">
               <span class="text-2xl font-bold text-[#0598CE]/40">02</span>
               <span class="text-white font-semibold"
-                >End-to-End Server & HW</span
+                >{t("services.server_hw.title")}</span
               >
             </div>
             <svg
@@ -174,7 +182,7 @@
             <div class="flex items-center gap-4">
               <span class="text-2xl font-bold text-[#0598CE]/40">03</span>
               <span class="text-white font-semibold"
-                >24/7 Technical Support</span
+                >{t("services.support.title")}</span
               >
             </div>
             <svg
@@ -198,7 +206,7 @@
           >
             <div class="flex items-center gap-4">
               <span class="text-2xl font-bold text-[#0598CE]/40">04</span>
-              <span class="text-white font-semibold">Consulting</span>
+              <span class="text-white font-semibold">{t("services.consulting.title")}</span>
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -251,13 +259,10 @@
             <h3
               class="group-hover:text-[#0598CE] transition-colors text-lg font-medium text-white mb-1"
             >
-              Full-Cycle Software Development
+              {t("services.full_cycle.title")}
             </h3>
             <p class="leading-relaxed text-sm font-normal text-slate-400">
-              Transform your ideas into market-ready applications through our
-              comprehensive process from ideation and agile coding to rigorous
-              testing, deployment, and ongoing optimization delivering scalable
-              solutions that accelerate your competitive edge.
+              {t("services.full_cycle.desc")}
             </p>
           </div>
         </div>
@@ -287,13 +292,10 @@
             <h3
               class="group-hover:text-[#0598CE] transition-colors text-lg font-medium text-white mb-1"
             >
-              End-to-End Server and Hardware Installation
+              {t("services.server_hw.title")}
             </h3>
             <p class="leading-relaxed text-sm font-normal text-slate-400">
-              Seamlessly deploy and configure secure, high-performance IT
-              infrastructure compliant with ISO 27001 and other international
-              standards, minimizing downtime and maximizing reliability for
-              mission-critical operations.
+              {t("services.server_hw.desc")}
             </p>
           </div>
         </div>
@@ -324,13 +326,10 @@
             <h3
               class="group-hover:text-[#0598CE] transition-colors text-lg font-medium text-white mb-1"
             >
-              24/7 Technical Support
+              {t("services.support.title")}
             </h3>
             <p class="leading-relaxed text-sm font-normal text-slate-400">
-              Experience uninterrupted business continuity with our
-              round-the-clock expert assistance, resolving issues swiftly via
-              proactive monitoring, remote diagnostics, and on-site intervention
-              to keep your systems running at peak efficiency.
+              {t("services.support.desc")}
             </p>
           </div>
         </div>
@@ -360,13 +359,10 @@
             <h3
               class="group-hover:text-[#0598CE] transition-colors text-lg font-medium text-white mb-1"
             >
-              Consulting
+              {t("services.consulting.title")}
             </h3>
             <p class="leading-relaxed text-sm font-normal text-slate-400">
-              Unlock strategic IT advantages through tailored advisory services,
-              from cybersecurity audits and digital transformation roadmaps to
-              compliance strategies, empowering informed decisions that drive
-              long-term growth and risk mitigation.
+              {t("services.consulting.desc")}
             </p>
           </div>
         </div>

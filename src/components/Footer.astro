@@ -1,6 +1,14 @@
 ---
+import { useTranslations, ui } from "../i18n/ui";
 import { Image } from "astro:assets";
 import MainLogo from "../assets/Logo_Main.webp";
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <!-- Footer -->
@@ -16,10 +24,10 @@ import MainLogo from "../assets/Logo_Main.webp";
       <h2
         class="text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tighter"
       >
-        Get in Touch
+        {t("footer.title")}
       </h2>
       <p class="text-lg font-medium text-slate-400">
-        Always online. Submit anytime.
+        {t("footer.subtitle")}
       </p>
     </div>
     <div class="space-y-4">
@@ -155,7 +163,7 @@ import MainLogo from "../assets/Logo_Main.webp";
       <div
         class="text-[10px] text-slate-600 font-mono tracking-wider uppercase"
       >
-        © 2024 DigitALL Nexus. System Secure.
+        {t("footer.copyright")}
       </div>
     </div>
   </div>
